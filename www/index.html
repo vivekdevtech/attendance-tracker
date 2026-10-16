@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="picker" class="picker">
+    <h1>Which group are you?</h1>
+    <p>This decides your lab classes. You can change it any time.</p>
+    <button onclick="setGroup('G1')">G1<small>CSE and MnC roll 1 to 10</small></button>
+    <button onclick="setGroup('G2')">G2<small>MnC roll 11 to last</small></button>
+  </section>
+
+  <section id="setup" class="setup">
+    <h1>Your starting numbers</h1>
+    <p>Enter the classes held and the classes you attended, counted up to the day before the date below. Use 0 if you have no data.</p>
+    <label class="date-field" id="date-field">Counting starts from
+      <input type="date" id="start-date">
+    </label>
+    <div id="setup-list"></div>
+    <p class="error" id="setup-error"></p>
+    <button class="primary" onclick="saveSetup()">Save</button>
+    <button class="link-btn" id="setup-cancel" onclick="cancelSetup()">Cancel</button>
+  </section>
+
+  <section id="settings" class="settings">
+    <button class="link-btn back-btn" onclick="closeSettings()">‹ Back</button>
+    <h1>Settings</h1>
+
+    <div class="card">
+      <h2>Starting numbers</h2>
+      <p>Change the held and attended numbers or your starting date.</p>
+      <button class="outline" onclick="openSetup()">Edit starting numbers</button>
+    </div>
+
+    <div class="card">
+      <h2>Backup</h2>
+      <p>Copies all your data as text. Paste it into Notes or WhatsApp to keep it safe.</p>
+      <button class="primary" onclick="copyBackup()">Copy backup</button>
+      <textarea id="backup-text" class="hidden-box" readonly></textarea>
+      <p class="msg" id="backup-msg"></p>
+    </div>
+
+    <div class="card">
+      <h2>Restore</h2>
+      <p>Paste a backup here. This replaces the data on this phone.</p>
+      <textarea id="restore-text" placeholder="Paste your backup text here"></textarea>
+      <button class="outline" onclick="restoreBackup()">Restore backup</button>
+      <p class="msg" id="restore-msg"></p>
+    </div>
+
+    <details class="danger">
+      <summary>Danger zone</summary>
+      <p>Erases all your ticks, starting numbers and settings, as if the app was just installed. Copy a backup first.</p>
+      <button class="danger-btn" onclick="resetAll()">Reset everything</button>
+    </details>
+  </section>
+
+  <section id="about" class="about">
+    <button class="link-btn back-btn" onclick="closeAbout()">‹ Back</button>
+
+    <div class="about-head">
+      <div class="app-icon">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <rect width="40" height="40" rx="10" fill="#0f5f6b"/>
+          <rect x="9" y="11" width="22" height="20" rx="3" fill="none" stroke="#fff" stroke-width="2.2"/>
+          <path d="M9 17h22" stroke="#fff" stroke-width="2.2"/>
+          <path d="M15 24l3.5 3.5L25 21" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1 id="about-name"></h1>
+      <p id="about-role"></p>
+    </div>
+
+    <div class="card">
+      <h2>About this app</h2>
+      <p class="bio" id="about-bio"></p>
+    </div>
+
+    <div class="card" id="links-card">
+      <h2>Find me online</h2>
+      <div class="pills" id="about-links"></div>
+    </div>
+
+    <div class="card">
+      <h2>Report a bug or ask anything</h2>
+      <p>Found something broken, or have an idea? Send me an email.</p>
+      <a class="primary" id="about-mail" href="#">Email me</a>
+    </div>
+
+    <p class="credit" id="about-credit"></p>
+  </section>
+
+  <main id="app">
+    <div class="top">
+      <h1>My Attendance</h1>
+      <div class="top-right">
+        <div class="seg">
+          <button id="btn-G1" onclick="setGroup('G1')">G1</button>
+          <button id="btn-G2" onclick="setGroup('G2')">G2</button>
+        </div>
+        <button class="avatar" onclick="openAbout()" aria-label="About this app">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <rect width="40" height="40" rx="10" fill="#0f5f6b"/>
+            <rect x="9" y="11" width="22" height="20" rx="3" fill="none" stroke="#fff" stroke-width="2.2"/>
+            <path d="M9 17h22" stroke="#fff" stroke-width="2.2"/>
+            <path d="M15 24l3.5 3.5L25 21" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <section class="overall">
+      <p class="percent" id="overall-percent"></p>
+      <p class="detail" id="overall-detail"></p>
+    </section>
+
+    <button class="banner" id="banner" onclick="goToPending()"></button>
+
+    <div class="date-nav">
+      <button onclick="changeDay(-1)">‹</button>
+      <span id="day-title"></span>
+      <button onclick="changeDay(1)">›</button>
+    </div>
+    <button class="link-btn" id="today-btn" onclick="goToday()">Back to today</button>
+    <div id="day-list"></div>
+    <button class="link-btn" id="holiday-btn" onclick="toggleHoliday()"></button>
+
+    <h2>Subjects</h2>
+    <div id="subject-list"></div>
+
+    <button class="link-btn" onclick="openSettings()">Settings</button>
+    <p class="credit" id="home-credit"></p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

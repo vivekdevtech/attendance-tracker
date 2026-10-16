@@ -1,0 +1,466 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #eef1ec;
+  color: #1b2a2f;
+  font-family: system-ui, sans-serif;
+}
+
+main {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h1 {
+  font-size: 22px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 18px;
+  margin: 24px 0 8px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.seg {
+  display: flex;
+  border: 1px solid #d5dcd6;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+}
+
+.seg button {
+  border: none;
+  background: white;
+  color: #1b2a2f;
+  font-size: 15px;
+  padding: 8px 16px;
+}
+
+.seg button.on {
+  background: #0f5f6b;
+  color: white;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.avatar svg,
+.app-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.app-icon {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 12px;
+}
+
+.picker,
+.setup,
+.settings,
+.about {
+  display: none;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.picker h1,
+.setup h1 {
+  margin: 32px 0 8px;
+}
+
+.picker p,
+.setup p {
+  color: #5d6b6e;
+  margin: 0 0 8px;
+}
+
+.picker button {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 20px;
+  text-align: left;
+  font-size: 28px;
+  background: white;
+  color: #1b2a2f;
+  border: 1px solid #d5dcd6;
+  border-radius: 12px;
+}
+
+.picker small {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: #5d6b6e;
+}
+
+.setup-row,
+.date-field {
+  display: block;
+  background: white;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.date-field {
+  font-size: 13px;
+  color: #5d6b6e;
+}
+
+.bad {
+  border-color: #c0392b;
+}
+
+.setup-row .fields {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.setup-row label {
+  flex: 1;
+  font-size: 13px;
+  color: #5d6b6e;
+}
+
+.setup-row input,
+.date-field input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 10px;
+  font-size: 16px;
+  color: #1b2a2f;
+  border: 1px solid #d5dcd6;
+  border-radius: 8px;
+}
+
+.primary {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  font-size: 16px;
+  color: white;
+  background: #0f5f6b;
+  border: none;
+  border-radius: 10px;
+}
+
+a.primary {
+  text-align: center;
+  text-decoration: none;
+}
+
+.outline {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  font-size: 16px;
+  color: #0f5f6b;
+  background: white;
+  border: 1px solid #0f5f6b;
+  border-radius: 10px;
+}
+
+.link-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  border: none;
+  background: none;
+  color: #0f5f6b;
+}
+
+.back-btn {
+  width: auto;
+  text-align: left;
+  padding-left: 0;
+}
+
+.error {
+  color: #c0392b !important;
+}
+
+.settings h1 {
+  margin: 8px 0 16px;
+}
+
+.about-head {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.about-head p {
+  margin: 4px 0 0;
+  color: #5d6b6e;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.card h2 {
+  margin: 0 0 4px;
+}
+
+.card p,
+.danger p {
+  margin: 0 0 8px;
+  color: #5d6b6e;
+  font-size: 14px;
+}
+
+.card .bio {
+  line-height: 1.5;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.pill {
+  padding: 10px 16px;
+  font-size: 15px;
+  color: white;
+  background: #0f5f6b;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.credit {
+  text-align: center;
+  color: #5d6b6e;
+  font-size: 13px;
+  margin: 16px 0 0;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 90px;
+  margin-top: 8px;
+  padding: 10px;
+  font-size: 14px;
+  color: #1b2a2f;
+  background: white;
+  border: 1px solid #d5dcd6;
+  border-radius: 8px;
+}
+
+.hidden-box {
+  display: none;
+}
+
+.msg {
+  margin: 8px 0 0 !important;
+}
+
+.msg.ok {
+  color: #2e7d4f !important;
+}
+
+.msg.bad-msg {
+  color: #c0392b !important;
+}
+
+.danger {
+  margin-top: 24px;
+  padding: 4px 16px 16px;
+}
+
+.danger summary {
+  padding: 10px 0;
+  font-size: 14px;
+  color: #5d6b6e;
+}
+
+.danger-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  color: white;
+  background: #c0392b;
+  border: none;
+  border-radius: 10px;
+}
+
+.overall {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.percent {
+  font-size: 56px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.detail {
+  margin: 4px 0 0;
+  color: #5d6b6e;
+}
+
+.banner {
+  display: none;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px;
+  text-align: left;
+  font-size: 15px;
+  background: #f6e7c8;
+  color: #5c3d05;
+  border: 1px solid #e2c98f;
+  border-radius: 10px;
+}
+
+.date-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0 8px;
+}
+
+.date-nav span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.date-nav button {
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  border: 1px solid #d5dcd6;
+  background: white;
+  color: #1b2a2f;
+  border-radius: 10px;
+}
+
+.subject,
+.class-row {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 8px;
+}
+
+.subject-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subject-percent {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.subject small,
+.class-row small {
+  display: block;
+  color: #5d6b6e;
+}
+
+.subject p {
+  margin: 6px 0 0;
+}
+
+.bar {
+  height: 6px;
+  background: #e3e8e3;
+  border-radius: 3px;
+  margin-top: 8px;
+}
+
+.bar-fill {
+  height: 100%;
+  background: #2e7d4f;
+  border-radius: 3px;
+}
+
+.low {
+  color: #c0392b;
+}
+
+.bar-fill.low {
+  background: #c0392b;
+}
+
+.buttons {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.buttons button {
+  flex: 1;
+  padding: 10px 4px;
+  font-size: 14px;
+  border: 1px solid #d5dcd6;
+  background: white;
+  color: #1b2a2f;
+  border-radius: 10px;
+}
+
+.buttons button.P.on {
+  background: #2e7d4f;
+  color: white;
+  border-color: #2e7d4f;
+}
+
+.buttons button.A.on {
+  background: #c0392b;
+  color: white;
+  border-color: #c0392b;
+}
+
+.buttons button.C.on {
+  background: #b7791f;
+  color: white;
+  border-color: #b7791f;
+}
+
+.empty {
+  color: #5d6b6e;
+  padding: 8px 0;
+}
